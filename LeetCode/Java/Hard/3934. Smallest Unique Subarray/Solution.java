@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     int max;
     int n;
