@@ -8,7 +8,7 @@
 Array, Hash Table, Binary Search, Rolling Hash, Suffix Array, Hash Function
 
 ### 🚀 Performance
-- **Runtime:** Successfully Evaluated
+- **Runtime:** N/A
 - **Memory:** N/A
 
 ---
