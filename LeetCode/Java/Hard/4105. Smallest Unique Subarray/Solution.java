@@ -5,19 +5,16 @@ class Solution {
 
     public boolean check(int size, int[] nums) {
         HashMap<Long, Integer> map = new HashMap<>();
-
         long num = 0;
-        long power = 1;
 
         for (int i = 0; i < size; i++) {
             num = num * max + nums[i];
-            power *= max;
         }
 
         map.put(num, 1);
 
         for (int i = size; i < n; i++) {
-            num = num - (long) nums[i - size] * (power / max);
+            num = num - (long) nums[i - size] * (long) Math.pow(max, size - 1);
             num = num * max + nums[i];
 
             map.put(num, map.getOrDefault(num, 0) + 1);
