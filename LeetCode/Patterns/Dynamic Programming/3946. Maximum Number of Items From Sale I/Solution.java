@@ -10,17 +10,6 @@ class Solution {
         if(budget >= items[i][1]){
             buy = 1 + map.getOrDefault(items[i][0], 0) + solve(i+1, budget - items[i][1], items);
         }
-        // if(!boughtOnce[i] && map.containsKey(items[i][0])) buy += map.get(items[i][0]);
-        // boughtOnce[i] = true;
-        // buy = 1 + solve(i, budget - items[i][1] , boughtOnce, items);
-        // boughtOnce[i] = false;
-        // if(boughtOnce[i]){
-        //     buy = 1 + solve(i, budget - items[i][1], boughtOnce, items);
-        // }else{
-        //     boughOnce[i] = true;
-        //     buy = 1 + map.get(items[i][0]) + solve(i, budget - items[i][1], boughtOnce, items);
-        //     boughtOnce[i] = false;
-        // }
 
         int skip = solve(i+1, budget, items);
 
