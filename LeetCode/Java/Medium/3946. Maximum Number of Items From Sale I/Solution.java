@@ -1,6 +1,6 @@
 class Solution {
     int n;
-    HashMap<Integer, Integer> map;
+    int[] copies;
     int cheapestItem;
     int[][] dp;
 
@@ -15,8 +15,7 @@ class Solution {
         int price = items[i - 1][1];
 
         if (budget >= price) {
-            buy = 1 + map.getOrDefault(items[i - 1][0], 0)
-                    + solve(i - 1, budget - price, items);
+            buy = 1 + copies[i-1] + solve(i - 1, budget - price, items);
         }
 
         int skip = solve(i - 1, budget, items);
@@ -26,7 +25,7 @@ class Solution {
 
     public int maximumSaleItems(int[][] items, int budget) {
         this.n = items.length;
-        this.map = new HashMap<>();
+        this.copies = new int[n];
         this.cheapestItem = 1501;
 
         for (int i = 0; i < n; i++) {
@@ -34,8 +33,7 @@ class Solution {
 
             for (int j = 0; j < n; j++) {
                 if (i != j && items[j][0] % items[i][0] == 0) {
-                    map.put(items[i][0],
-                            map.getOrDefault(items[i][0], 0) + 1);
+                    copies[i]++;
                 }
             }
         }
