@@ -14,9 +14,9 @@ class Solution {
             if (freq[i] == 0)continue;
             int cnt = 0;
             for (int j=i; j<=n; j+=i) {
-                if(i != j) cnt += freq[j];
+                cnt += freq[j];
             }
-            gain[i] = cnt;
+            gain[i] = cnt - 1;
         }
 
         Arrays.sort(items, (a, b) -> Integer.compare(a[1], b[1]));
@@ -27,7 +27,7 @@ class Solution {
             int price = item[1];
 
             if(2 * minCost < price) continue;
-            
+
             int buy = Math.min(gain[factor], budget / price);
             ans += 2 * buy;
             budget -= buy * price;
