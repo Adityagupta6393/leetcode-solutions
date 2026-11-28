@@ -27,11 +27,9 @@ class Solution {
             int price = item[1];
 
             if(2 * minCost < price) continue;
-
+            
             int buy = Math.min(gain[factor], budget / price);
-
             ans += 2 * buy;
-
             budget -= buy * price;
         }
 
